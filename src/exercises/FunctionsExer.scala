@@ -14,9 +14,9 @@ object FunctionsExer extends App {
       if (n > 1) {
         product *= n - 1
         calculate(n - 1, product)
+      } else {
+        product
       }
-
-      product
     }
 
     calculate(n, n)
@@ -29,7 +29,7 @@ object FunctionsExer extends App {
     var a = 1
     var b = 1
     var c = 0
-    var m = 3
+    val m = 3
 
     def calcFibo(m: Int): Int = {
       if (m < n + 1) {
@@ -46,8 +46,28 @@ object FunctionsExer extends App {
   }
 
   println(fibonacci(25))
-//
-//  def isPrint(n: Int): Int = {
-//
-//  }
+
+  def checkPrime(p: Int): Boolean = {
+
+    var factors = 1
+
+    def isFactor(q: Int): Int = {
+      if (p % q == 0) 1
+      else 0
+    }
+
+    def checkFactors(q: Int): Int = {
+      if (q < p + 1) {
+        factors += isFactor(q)
+        checkFactors(q + 1)
+      }
+
+      factors
+    }
+
+    if (checkFactors(2) > 2) false
+    else true
+  }
+
+  println(checkPrime(23))
 }
