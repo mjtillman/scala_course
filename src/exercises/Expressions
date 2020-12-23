@@ -1,0 +1,20 @@
+1. What is the difference between "Hello World"
+and println("Hello World")?
+
+The first is an expression (string literal "Hello World"), the latter is an instruction.
+
+2. What is the value of this code block?
+    val someValue = {
+        2 < 3
+    }
+
+    The value is true because 2 < 3 evaluates to true.
+
+3. What is the value of this code block?
+    val someOtherValue = {
+        if(someValue) 239 else 986
+        42
+    }
+
+    The value is 42 because that is the last expression in the codeblock.
+    (Python or Ruby does this)
