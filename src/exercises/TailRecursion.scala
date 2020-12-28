@@ -33,11 +33,25 @@ object TailRecursion extends App {
     checkPrime(x, 2)
   }
 
-  println(isPrime(29))
-  println(isPrime(25))
+//  println(isPrime(29))
+//  println(isPrime(25))
+
+  def isPrime2(x: Int): Boolean = {
+    def checkPrime2(n: Int, stillPrime: Boolean): Boolean = {
+      if (!stillPrime) false
+      else if (n == x) true
+      else checkPrime2(n + 1, x % n != 0)
+    }
+
+    checkPrime2(3, true)
+  }
+
+  println(isPrime2(29))
+  println(isPrime2(25))
 
   def fibonacci(x: Int): Int = {
 
+    @tailrec
     def checkFibo(x: Int, y: Int, z: Int): Int = {
       if (x > 0) {
         checkFibo(x - 1, z, y + z)
@@ -47,5 +61,5 @@ object TailRecursion extends App {
     checkFibo(x - 1, 1, 1)
   }
 
-  println(fibonacci(16))
+//  println(fibonacci(16))
 }
