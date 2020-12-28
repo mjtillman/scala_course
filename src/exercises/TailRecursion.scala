@@ -40,7 +40,7 @@ object TailRecursion extends App {
     def checkPrime2(n: Int, stillPrime: Boolean): Boolean = {
       if (!stillPrime) false
       else if (n == x) true
-      else checkPrime2(n + 1, x % n != 0)
+      else checkPrime2(n + 1, x % n != 0 && stillPrime)
     }
 
     checkPrime2(3, true)
