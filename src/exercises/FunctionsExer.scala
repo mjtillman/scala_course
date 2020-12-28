@@ -8,15 +8,9 @@ object FunctionsExer extends App {
 
   def factorial(n: Int): Int = {
 
-    def calculate(n: Int, fact: Int): Int = {
-      var product = fact
-
-      if (n > 1) {
-        product *= n - 1
-        calculate(n - 1, product)
-      } else {
-        product
-      }
+    def calculate(n: Int, acc: Int): Int = {
+      if (n > 2) calculate(n - 1, n * acc)
+      else acc
     }
 
     calculate(n, n)
@@ -26,23 +20,15 @@ object FunctionsExer extends App {
 
   def fibonacci(n: Int): Int = {
 
-    var a = 1
-    var b = 1
-    var c = 0
-    val m = 3
-
-    def calcFibo(m: Int): Int = {
+    def calcFibo(m: Int, o: Int, p: Int): Int = {
       if (m < n + 1) {
-        c = a + b
-        a = b
-        b = c
-        calcFibo(m + 1)
+        calcFibo(m + 1, p, o + p)
+      } else {
+        p
       }
-
-      c
     }
 
-    calcFibo(m)
+    calcFibo(3, 1, 1)
   }
 
   println(fibonacci(25))
